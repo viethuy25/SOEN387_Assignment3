@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ include file="header.jsp" %>
 <%
-session.removeAttribute("user");
+    session.removeAttribute("user");
 %>
 <h1>Logged out</h1>
 <a href="./">Home</a>

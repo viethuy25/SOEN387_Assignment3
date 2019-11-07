@@ -9,7 +9,7 @@
 <head>
 <link rel="shortcut icon" href="./favicon.ico" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<!-- Latest compiled and minified CSS -->
+<!-- boostrap CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 
 </head>
