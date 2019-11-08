@@ -3,7 +3,6 @@
 <html>
 <head>
     <title>Error page</title>
-    <link rel="shortcut icon" href="./favicon.ico" />
     <meta http-equiv="refresh" content="3;url=http://localhost:8084/SOEN387_Assignment2/index.jsp" />
     <!-- boostrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">

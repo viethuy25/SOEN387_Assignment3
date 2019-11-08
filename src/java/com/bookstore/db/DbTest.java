@@ -17,10 +17,9 @@ import com.bookstore.models.User;
  * Servlet implementation class DbTest
  */
 public class DbTest extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-	final static String db_url = "jdbc:mysql://css-490-db.cs2vzd2bk0ai.us-west-2.rds.amazonaws.com:3306/css490pr";
-	final static String db_username = "cssProjHandler";
-	final static String db_passwd = "AbdulAaronTim$490";
+	final private static String db_url = "jdbc:mysql://localhost:3306/bookstore";
+	final private static String db_username = "root";
+	final private static String db_passwd = "Barcelona2108";
 	
 	DBConnectionPool connPool = null;
        
@@ -38,18 +37,18 @@ public class DbTest extends HttpServlet {
     @Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	// User read test
-		User user = new UserDB().selectUser("timgalvin");
+		//User user = new UserDB().selectUser("timgalvin");
 		
 		// Read all users
-		ArrayList<User> users = new UserDB().selectUsers();
+		//ArrayList<User> users = new UserDB().selectUsers();
 			
 		// Book read test
-		Book book = new BookDB().selectBook("978-0544272996");
+		//Book book = new BookDB().selectBook("S");
 				
-		request.setAttribute("user", user);
-		request.setAttribute("users", users);
-		request.setAttribute("book", book);
-		request.getRequestDispatcher("DatabaseTester.jsp").forward(request, response);
+		//request.setAttribute("user", user);
+		//request.setAttribute("users", users);
+		//request.setAttribute("book", book);
+		//request.getRequestDispatcher("testdb.jsp").forward(request, response);
 	}
 
 	/**

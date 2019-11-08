@@ -24,11 +24,11 @@
         <input type="text" name="description" id="description" required />
     </p>
 
-    <p>
+    <!-- <p>
         <label for="coverImage">Submit a Cover Image</label>
         <input type="file" name="coverImage" id="coverImage" />
     </p>
-    
+    -->
     <br>
     <br>
     <input type="submit" />

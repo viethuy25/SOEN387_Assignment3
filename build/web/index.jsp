@@ -1,3 +1,5 @@
+<%@page import="org.json.simple.parser.JSONParser"%>
+<%@page import="java.io.FileReader"%>
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -21,6 +23,9 @@ and open the template in the editor.
     BookDB bk = new BookDB();
     ArrayList<Book> books = bk.selectAllBooks();
 	
+    Object obj = new JSONParser().parse(new FileReader("C:\\Users\\vieth\\Desktop\\SOEN 387\\Assignment\\A2\\SOEN387_Assignment2\\user.json"));
+    out.println (obj);
+        
 %>
 
 <div class="row">

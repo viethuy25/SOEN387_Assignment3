@@ -9,9 +9,9 @@ import java.util.ArrayList;
 import com.bookstore.models.Book;
 
 public class BookDB {
-	final private static String db_url = "jdbc:mysql://css-490-db.cs2vzd2bk0ai.us-west-2.rds.amazonaws.com:3306/css490pr";
-	final private static String db_username = "cssProjHandler";
-	final private static String db_passwd = "AbdulAaronTim$490";
+	final private static String db_url = "jdbc:mysql://localhost:3306/bookstore";
+	final private static String db_username = "root";
+	final private static String db_passwd = "Barcelona2108";
 	
 	DBConnectionPool connPool = null;
 	
@@ -53,7 +53,6 @@ public class BookDB {
 		
 		try {
 			conn = connPool.getConnection();
-			
 			if(conn != null) {
 				stmt = conn.createStatement();
 
@@ -96,6 +95,7 @@ public class BookDB {
 	 */
 	public Book selectBook(String isbn) {
 		Statement stmt = null;
+                System.out.println("fuck");
 		ResultSet rs = null;
 		Book book = new Book();
 		Connection conn = null;

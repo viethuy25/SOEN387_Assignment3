@@ -7,7 +7,7 @@ public class Hasher {
 	public static String getHash(String plainTextIn) {
 		// Get plaintext password, and set hash algorithm
 		String password = plainTextIn;
-		String algorithm = "SHA-256";
+		String algorithm = "MD5";
 
 		byte[] plainText = password.getBytes();  // Convert to bytes
 		MessageDigest md = null;
