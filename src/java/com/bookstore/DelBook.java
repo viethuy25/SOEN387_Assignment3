@@ -47,87 +47,13 @@ public class DelBook extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		boolean isMultipart = ServletFileUpload.isMultipartContent(request);
-		Book book = null;
-		ArrayList<Author> authors = null;
-		HashMap<String, String> map = new HashMap<String, String>();
-		if (isMultipart) {
-			// Configure a repository parameter
-			ServletContext context = this.getServletConfig().getServletContext();
-			String filePath = context.getInitParameter("file-upload");
-			
-			// Create a factory for disk-based file items
-			DiskFileItemFactory factory = new DiskFileItemFactory();
-
-			// Create a new file upload handler
-			ServletFileUpload upload = new ServletFileUpload(factory);
-
-			try{ 
-				// Parse the request to get file items.
-				List<FileItem> items = upload.parseRequest(request);
-
-				// Process the uploaded file items
-				Iterator<FileItem> iter = items.iterator();
-
-				int indx = 1;
-				
-				while (iter.hasNext ()){
-					FileItem fi = iter.next();
-					if ( fi.isFormField () ) {
-						// Process a regular form field
-		            	String otherFieldName = fi.getFieldName();
-		            	String otherFieldValue = fi.getString();
-		            	map.put(otherFieldName, otherFieldValue);
-		            	
-		            	System.out.println(otherFieldName + " : " + otherFieldValue);
-		            } else {
-		            	// Get the uploaded file parameters
-						
-						String fileName = fi.getName();
-						String fieldName = fi.getFieldName();
-						long sizeInBytes = fi.getSize();
-						
-						if(fi.getName() == ""){
-							continue;
-						}
-						// Write the file
-						String path = getServletContext().getInitParameter("file-upload");
-						File file = new File(path + File.separator + fileName) ;
-		            	fi.write( file ) ;
-		            	if(!fileName.equals("")){
-		            		System.out.println("fileName: " + fileName);
-		            	}
-		            	map.put("coverImageFile", fileName);
-		            }
-				}
-			}catch(Exception ex) {
-				ex.printStackTrace();
-			}
-		}
-		if (!map.isEmpty()) {
-			book = populateBook(map);
-			authors = AddAuthor.populateAuthor(map);
-		}
-		int result = new BookDB().createNewBook(book);
-		
-		System.out.println(authors.get(0).getAuthorName());
-		int authorResult = new AuthorDB().checkAndAdd(authors, book.getIsbn());
-		if (result == 1 && authorResult >= 1) {
-			response.sendRedirect(request.getContextPath() + "/AddBookConfirmation.jsp?success=true");
+		String isbn = request.getParameter("isbn");
+		int result = new BookDB().deleteBook(isbn);
+                
+		if (result == 1) {
+			response.sendRedirect(request.getContextPath() + "/DelBookConfirmation.jsp?success=true");
 		} else {
-			response.sendRedirect(request.getContextPath() + "/AddBookConfirmation.jsp?success=false");
+			response.sendRedirect(request.getContextPath() + "/DelBookConfirmation.jsp?success=false");
 		}
 	}
-
-	private Book populateBook(HashMap<String, String> map) {
-		Book book = new Book();
-		book.setIsbn(map.get("isbn"));
-		book.setTitle(map.get("title"));
-		book.setDescription(map.get("description"));
-		if (map.containsKey("coverImageFile")) {
-			book.setCoverImageFile(map.get("coverImageFile"));
-		}
-		return book;
-	}
-
 }

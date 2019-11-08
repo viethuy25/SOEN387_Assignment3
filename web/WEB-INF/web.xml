@@ -34,6 +34,10 @@
     <servlet-class>com.bookstore.AddBook</servlet-class>
   </servlet>
   <servlet>
+    <servlet-name>DelBook</servlet-name>
+    <servlet-class>com.bookstore.DelBook</servlet-class>
+  </servlet>
+  <servlet>
     <servlet-name>Search</servlet-name>
     <servlet-class>com.bookstore.Search</servlet-class>
   </servlet>
@@ -80,6 +84,10 @@
   <servlet-mapping>
     <servlet-name>AddBook</servlet-name>
     <url-pattern>/AddBook</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DelBook</servlet-name>
+    <url-pattern>/DelBook</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>Search</servlet-name>
