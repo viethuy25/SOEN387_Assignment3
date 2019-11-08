@@ -37,7 +37,6 @@ and open the template in the editor.
                         </div>
                         <div class="col-md-8" style="text-align: left; padding-left:10px;">
                             <h4><%=book.getTitle() %></h4>
-                            <h5><%=nf.format(book.getPrice()) %></h5>
                         </div>
                     </div>
                 </div>

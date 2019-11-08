@@ -25,13 +25,13 @@ import com.bookstore.models.Book;
 /**
  * Servlet implementation class AddBook
  */
-public class AddBook extends HttpServlet {
+public class DelBook extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AddBook() {
+    public DelBook() {
         super();
         // TODO Auto-generated constructor stub
     }

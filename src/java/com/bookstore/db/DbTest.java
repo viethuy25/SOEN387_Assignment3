@@ -45,18 +45,10 @@ public class DbTest extends HttpServlet {
 			
 		// Book read test
 		Book book = new BookDB().selectBook("978-0544272996");
-		
-		// Test retrieving all books from one genre
-		ArrayList<Book> genreBook = new BookDB().selectAllBooksFromGenre("Humor");
-		
-		// Test retrieving all books from one author
-		ArrayList<Book> authorBook = new BookDB().selectAllBooksFromAuthor("Randall Munroe");
-		
+				
 		request.setAttribute("user", user);
 		request.setAttribute("users", users);
 		request.setAttribute("book", book);
-		request.setAttribute("genreBook", genreBook);
-		request.setAttribute("authorBook", authorBook);
 		request.getRequestDispatcher("DatabaseTester.jsp").forward(request, response);
 	}
 

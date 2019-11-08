@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
   <display-name>Bookstore</display-name>
+  <error-page>
+    <error-code>404</error-code>
+    <location>/404_page.jsp</location>
+  </error-page>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.htm</welcome-file>
@@ -34,10 +38,6 @@
     <servlet-class>com.bookstore.Search</servlet-class>
   </servlet>
   <servlet>
-    <servlet-name>CartUpdate</servlet-name>
-    <servlet-class>com.bookstore.CartUpdate</servlet-class>
-  </servlet>
-  <servlet>
   	<servlet-name>UserDelete</servlet-name>
   	<servlet-class>com.bookstore.UserDelete</servlet-class>
   </servlet>
@@ -46,24 +46,12 @@
     <servlet-class>com.bookstore.UserLookup</servlet-class>
   </servlet>
   <servlet>
-    <servlet-name>SubmitOrder</servlet-name>
-    <servlet-class>com.bookstore.SubmitOrder</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>SubmitReview</servlet-name>
-    <servlet-class>com.bookstore.SubmitReview</servlet-class>
-  </servlet>
-  <servlet>
     <servlet-name>BookLookup</servlet-name>
     <servlet-class>com.bookstore.BookLookup</servlet-class>
   </servlet>
   <servlet>
     <servlet-name>UpdateUser</servlet-name>
     <servlet-class>com.bookstore.UpdateUser</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>GenerateReports</servlet-name>
-    <servlet-class>com.bookstore.GenerateReports</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>FirstTest</servlet-name>
@@ -98,27 +86,11 @@
     <url-pattern>/Search</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-    <servlet-name>CartUpdate</servlet-name>
-    <url-pattern>/cartUpdate</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>SubmitOrder</servlet-name>
-    <url-pattern>/submitOrder</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>SubmitReview</servlet-name>
-    <url-pattern>/submitReview</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
     <servlet-name>BookLookup</servlet-name>
     <url-pattern>/BookLookup</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>UpdateUser</servlet-name>
     <url-pattern>/updateUser</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>GenerateReports</servlet-name>
-    <url-pattern>/generateReports</url-pattern>
   </servlet-mapping>
 </web-app>

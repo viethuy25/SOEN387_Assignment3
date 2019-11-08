@@ -57,16 +57,12 @@ public class BookDB {
 			if(conn != null) {
 				stmt = conn.createStatement();
 
-				String strQuery = "insert into books (isbn, title, publisher, price, "
-						+ "description, publish_date, cover_image, inventory) values('"
+				String strQuery = "insert into books (isbn, title, "
+						+ "description, cover_image) values('"
 				        + book.getIsbn() + "', '"
 				        + book.getTitle() + "', '"
-				        + book.getPublisher() + "', '"
-				        + book.getPrice() + "', '"
 				        + book.getDescription() + "', '"
-				        + book.getPublishDate() + "', '"
-				        + book.getCoverImageFile() + "', '"
-				        + book.getInventory() + "')";
+				        + book.getCoverImageFile() + "', '";
 				resultNo = stmt.executeUpdate(strQuery);
 			}
 		} catch (SQLException e) {
@@ -109,19 +105,14 @@ public class BookDB {
 			if(conn != null) {
 				stmt = conn.createStatement();
 				
-				String strQuery = "select isbn, title, publisher, price, description, "
-						+ "publish_date, cover_image, inventory "  
+				String strQuery = "select isbn, title, description, cover_image "  
 						+ "from books where isbn='" + isbn + "'";
 				rs = stmt.executeQuery(strQuery);
 				if (rs.next()) {
 					book.setIsbn(rs.getString(1));
 					book.setTitle(rs.getString(2));
-					book.setPublisher(rs.getString(3));
-					book.setPrice(rs.getDouble(4));
-					book.setDescription(rs.getString(5));
-					book.setPublishDate(rs.getDate(6).toString());
-					book.setCoverImageFile(rs.getString(7));
-					book.setInventory(rs.getInt(8));
+					book.setDescription(rs.getString(3));
+					book.setCoverImageFile(rs.getString(4));
 				}
 			}
 		} catch (SQLException e) {
@@ -165,22 +156,18 @@ public class BookDB {
 			if(conn != null) {
 				stmt = conn.createStatement();
 				
-				String strQuery = "select b.isbn, b.title, b.publisher, b.price, b.description, "
-						+ "b.publish_date, b.cover_image, b.inventory "  
+				String strQuery = "select b.isbn, b.title, b.description, "
+						+ "b.cover_image, "  
 						+ "from books b "
 						+ "join book_author ba "
 						+ "on b.isbn=ba.isbn "
 						+ "join author a "
 						+ "on a.author_id=ba.author_id "
-						+ "join genre_book gb "
 						+ "on b.isbn=gb.isbn "
-						+ "join genres g "
-						+ "on gb.genre_name=g.genre_name "
 						+ "where "
 						+ "b.isbn like '%" + query + "%' or "
 						+ "b.title like '%" + query + "%' or "
 						+ "a.author_name like '%" + query + "%' or "
-						+ "g.genre_name like '%" + query + "%' or "
 						+ "b.description like '%" + query + "%'";
 				System.out.println(strQuery);
 				rs = stmt.executeQuery(strQuery);
@@ -188,12 +175,8 @@ public class BookDB {
 					Book b = new Book();
 					b.setIsbn(rs.getString(1));
 					b.setTitle(rs.getString(2));
-					b.setPublisher(rs.getString(3));
-					b.setPrice(rs.getDouble(4));
-					b.setDescription(rs.getString(5));
-					b.setPublishDate(rs.getDate(6).toString());
-					b.setCoverImageFile(rs.getString(7));
-					b.setInventory(rs.getInt(8));
+					b.setDescription(rs.getString(3));
+					b.setCoverImageFile(rs.getString(4));
 					if (isUniqueInList(books, b.getIsbn())) {
 						books.add(b);
 					}
@@ -249,207 +232,15 @@ public class BookDB {
 			
 			if(conn != null) {
 				stmt = conn.createStatement();
-				String strQuery = "select isbn, title, publisher, price, description, "
-						+ "publish_date, cover_image, inventory "  
+				String strQuery = "select isbn, title, description, cover_image"  
 						+ "from books";
 				rs = stmt.executeQuery(strQuery);
 				while(rs.next()) {
 					Book b = new Book();
 					b.setIsbn(rs.getString(1));
 					b.setTitle(rs.getString(2));
-					b.setPublisher(rs.getString(3));
-					b.setPrice(rs.getDouble(4));
-					b.setDescription(rs.getString(5));
-					b.setPublishDate(rs.getDate(6).toString());
-					b.setCoverImageFile(rs.getString(7));
-					b.setInventory(rs.getInt(8));
-					books.add(b);
-				}
-			}
-		} catch (SQLException e) {
-			for(Throwable t: e) {
-				t.printStackTrace();
-			}
-		} catch (Exception et) {
-			et.printStackTrace();
-		} finally {
-			try {
-				if (rs != null) {
-					rs.close();
-				}
-				if (stmt != null) {
-					stmt.close();
-				}
-				if (conn != null) {
-					connPool.returnConnection(conn);
-				}
-			} catch (Exception e) {
-				System.err.println(e);
-			}
-		}		
-		return books;
-	}
-	
-	//Select all books from genre
-	/**
-	 * Returns a list of all the books from a single genre. Could be used
-	 * to facilitate the case where users just want to browse.
-	 * @return A list of all books in the specified genre.
-	 */
-	public ArrayList<Book> selectAllBooksFromGenre(String genre) {
-		Statement stmt = null;
-		ResultSet rs = null;
-		ArrayList<Book> books = new ArrayList<Book>();
-		Connection conn = null;
-		
-		try {
-			conn = connPool.getConnection();
-			
-			if(conn != null) {
-				stmt = conn.createStatement();
-				String strQuery = 
-						"select b.isbn, b.title, b.publisher, b.price, b.description, "
-						+ "b.publish_date, b.cover_image, b.inventory "  
-						+ "from books b "
-							+ "join genre_book gb "
-								+ "on b.isbn=gb.isbn "
-						+ "where gb.genre_name='" + genre + "'";
-				rs = stmt.executeQuery(strQuery);
-				while(rs.next()) {
-					Book b = new Book();
-					b.setIsbn(rs.getString(1));
-					b.setTitle(rs.getString(2));
-					b.setPublisher(rs.getString(3));
-					b.setPrice(rs.getDouble(4));
-					b.setDescription(rs.getString(5));
-					b.setPublishDate(rs.getDate(6).toString());
-					b.setCoverImageFile(rs.getString(7));
-					b.setInventory(rs.getInt(8));
-					books.add(b);
-				}
-			}
-		} catch (SQLException e) {
-			for(Throwable t: e) {
-				t.printStackTrace();
-			}
-		} catch (Exception et) {
-			et.printStackTrace();
-		} finally {
-			try {
-				if (rs != null) {
-					rs.close();
-				}
-				if (stmt != null) {
-					stmt.close();
-				}
-				if (conn != null) {
-					connPool.returnConnection(conn);
-				}
-			} catch (Exception e) {
-				System.err.println(e);
-			}
-		}		
-		return books;
-	}
-	
-	//Select all books from author
-	/**
-	 * Returns a list of all the books in inventory from one author.
-	 * @return A list Book objects from the specified author
-	 */
-	public ArrayList<Book> selectAllBooksFromAuthor(String author) {
-		Statement stmt = null;
-		ResultSet rs = null;
-		ArrayList<Book> books = new ArrayList<Book>();
-		Connection conn = null;
-		
-		try {
-			conn = connPool.getConnection();
-			
-			if(conn != null) {
-				stmt = conn.createStatement();
-				String strQuery = 
-						"select b.isbn, b.title, b.publisher, b.price, b.description, "
-						+ "b.publish_date, b.cover_image, b.inventory "  
-						+ "from books b "
-							+ "join book_author ba "
-								+ "on b.isbn=ba.isbn "
-							+ "join author a "
-								+ "on ba.author_id=a.author_id "
-						+ "where a.author_name='" + author + "'";
-				rs = stmt.executeQuery(strQuery);
-				while(rs.next()) {
-					Book b = new Book();
-					b.setIsbn(rs.getString(1));
-					b.setTitle(rs.getString(2));
-					b.setPublisher(rs.getString(3));
-					b.setPrice(rs.getDouble(4));
-					b.setDescription(rs.getString(5));
-					b.setPublishDate(rs.getDate(6).toString());
-					b.setCoverImageFile(rs.getString(7));
-					b.setInventory(rs.getInt(8));
-					books.add(b);
-				}
-			}
-		} catch (SQLException e) {
-			for(Throwable t: e) {
-				t.printStackTrace();
-			}
-		} catch (Exception et) {
-			et.printStackTrace();
-		} finally {
-			try {
-				if (rs != null) {
-					rs.close();
-				}
-				if (stmt != null) {
-					stmt.close();
-				}
-				if (conn != null) {
-					connPool.returnConnection(conn);
-				}
-			} catch (Exception e) {
-				System.err.println(e);
-			}
-		}		
-		return books;
-	}
-	
-	//Select all books from order number
-	/**
-	 * Returns a list of all the books sold on a single order number. Could be useful
-	 * when displaying a customer's order history or generating reciepts.
-	 * @return A list Book objects from the specified order number
-	 */
-	public ArrayList<Book> selectAllBooksFromAuthor(int orderNumber) {
-		Statement stmt = null;
-		ResultSet rs = null;
-		ArrayList<Book> books = new ArrayList<Book>();
-		Connection conn = null;
-		
-		try {
-			conn = connPool.getConnection();
-			
-			if(conn != null) {
-				stmt = conn.createStatement();
-				String strQuery = 
-						"select b.isbn, b.title, b.publisher, b.price, b.description, "
-						+ "b.publish_date, b.cover_image, b.inventory "  
-						+ "from books b "
-							+ "join transaction_book tb "
-								+ "on b.isbn=tb.isbn "
-						+ "where tb.transaction_id='" + orderNumber + "'";
-				rs = stmt.executeQuery(strQuery);
-				while(rs.next()) {
-					Book b = new Book();
-					b.setIsbn(rs.getString(1));
-					b.setTitle(rs.getString(2));
-					b.setPublisher(rs.getString(3));
-					b.setPrice(rs.getDouble(4));
-					b.setDescription(rs.getString(5));
-					b.setPublishDate(rs.getDate(6).toString());
-					b.setCoverImageFile(rs.getString(7));
-					b.setInventory(rs.getInt(8));
+					b.setDescription(rs.getString(3));
+					b.setCoverImageFile(rs.getString(4));
 					books.add(b);
 				}
 			}
@@ -544,12 +335,8 @@ public class BookDB {
 				String strQuery = "update books set "
 				+ "isbn='" + book.getIsbn() + "', "
 				+ "title='" + book.getTitle() + "', "
-				+ "publisher='" + book.getPublisher() + "', "
-				+ "price='" + book.getPrice() + "', "
 				+ "description='" + book.getDescription() + "', "
-				+ "publish_date='" + book.getPublishDate() + "', "
 				+ "cover_image='" + book.getCoverImageFile() + "', "
-				+ "inventory='" + book.getInventory()
 				+ "' where isbn='" + book.getIsbn() + "'";
 				resultNo = stmt.executeUpdate(strQuery);
 			}

@@ -4,6 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 
+ 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -54,8 +55,8 @@
                     <li><a href="./SignUp.jsp">Sign in/Register</a></li> 
                     <% } %>
                 
-                <li><a href="./AddBook.jsp">Add Book</a></li>
-                <li><a href="./UpdateBook.jsp">Update Book</a></li>
+                <li><a href="./AddBook.jsp">Add/Update Book</a></li>
+                <li><a href="./DelBook.jsp">Delete Book</a></li>
                 <li><a href="./Search?search-query=">View All Books</a></li>
                 <c:forEach var="row" items="${result.rows}">
                 <li><a href="./Search?search-query=${row.genre_name}">${row.genre_name}</a></li>
