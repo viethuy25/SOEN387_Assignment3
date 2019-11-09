@@ -23,7 +23,7 @@
                     </form>
                 </td>
             <td>${book.title}</td>
-            <td>${book.authors}</td>
+            <td>${book.author}</td>
             <td>${book.isbn}</td>
             </tr>
             </c:forEach>

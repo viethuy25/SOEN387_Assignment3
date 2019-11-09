@@ -156,19 +156,7 @@ public class BookDB {
 			if(conn != null) {
 				stmt = conn.createStatement();
 				
-				String strQuery = "select b.isbn, b.title, b.description, "
-						+ "b.cover_image, "  
-						+ "from books b "
-						+ "join book_author ba "
-						+ "on b.isbn=ba.isbn "
-						+ "join author a "
-						+ "on a.author_id=ba.author_id "
-						+ "on b.isbn=gb.isbn "
-						+ "where "
-						+ "b.isbn like '%" + query + "%' or "
-						+ "b.title like '%" + query + "%' or "
-						+ "a.author_name like '%" + query + "%' or "
-						+ "b.description like '%" + query + "%'";
+				String strQuery = "select * from books";
 				System.out.println(strQuery);
 				rs = stmt.executeQuery(strQuery);
 				while (rs.next()) {

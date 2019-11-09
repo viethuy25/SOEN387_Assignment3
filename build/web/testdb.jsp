@@ -17,10 +17,8 @@
 <%
   try {
     Class.forName("com.mysql.jdbc.Driver");
-    DBConnectionPool connPool = new DBConnectionPool("jdbc:mysql://localhost:3306/bookstore?autoReconnect=true&useSSL=true&serverTimezone=PDT", "root", "Barcelona2108");
-    
-    out.println ("database successfully opened.");
-    
+    DBConnectionPool connPool = new DBConnectionPool("jdbc:mysql://localhost:3306/bookstore", "root", "Barcelona2108");
+      
     Statement stmt = null;
                 
     ResultSet rs = null;
@@ -30,17 +28,17 @@
 
     if(conn != null) {
             stmt = conn.createStatement();
-
-            String strQuery = "select isbn, title, description, cover_image "  
+            
+            String strQuery = "select isbn, title, description "  
                             + "from books where isbn='S'";
             rs = stmt.executeQuery(strQuery);
             if (rs.next()) {
                     book.setIsbn(rs.getString(1));
                     book.setTitle(rs.getString(2));
                     book.setDescription(rs.getString(3));
-                    book.setCoverImageFile(rs.getString(4));
             }
     }
+    out.println ("database successfully opened.");
   }
   catch(SQLException e) {
     out.println("SQLException caught: " +e.getMessage());

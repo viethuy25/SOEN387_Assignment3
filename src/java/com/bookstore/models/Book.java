@@ -8,12 +8,14 @@ import com.bookstore.db.AuthorDB;
 public class Book implements Serializable {
 	private String isbn;
 	private String title;
+        private String author;
 	private String description;
 	private String coverImageFile;
 	
-	public Book(String isbn, String title, String description, String coverImageFile) {
+	public Book(String isbn, String title, String author, String description, String coverImageFile) {
 		this.isbn = isbn;
 		this.title = title;
+                this.author = author;
 		this.description = description;
 		this.coverImageFile = coverImageFile;
 	}
@@ -21,6 +23,7 @@ public class Book implements Serializable {
 	public Book() {
 		this.isbn = "";
 		this.title = "";
+                this.author = "";
 		this.description = "";
 		this.coverImageFile = "";
 	}
@@ -56,12 +59,10 @@ public class Book implements Serializable {
 		this.coverImageFile = coverImageFile;
 	}
 
-        public String getAuthor() {
-		String authorName = "";
-
-		ArrayList<Author> authors = new AuthorDB().searchForAuthors(this.isbn);
-		authorName = authors.get(0).getAuthorName();
-                
-		return authorName;
+        public void setAuthor(String author){
+                this.author = author;
+        }
+        public String getAuthor() {               
+		return author;
 	}
 }

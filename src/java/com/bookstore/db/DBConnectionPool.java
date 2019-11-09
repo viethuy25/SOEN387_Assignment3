@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.util.ArrayList;
 
 public class DBConnectionPool {
-	final String driver = "org.gjt.mm.mysql.Driver";
+	final String driver = "com.mysql.jdbc.Driver";
 	String url;
 	String username;
 	String passwd; 
@@ -26,7 +26,6 @@ public class DBConnectionPool {
 				return conn;
 			}
 		}
-		
 		return DriverManager.getConnection(url, username, passwd);
 	}
 	
