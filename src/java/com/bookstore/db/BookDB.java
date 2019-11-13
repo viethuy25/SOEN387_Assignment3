@@ -84,7 +84,7 @@ public class BookDB {
 	
 	/**
 	 * Retrieve a model for a single book
-	 * @param isbn String containing isbn with dashes.
+	 * @param isbn String containing isbn
 	 * @return model of a book
 	 */
 	public Book selectBook(String isbn) {
@@ -132,6 +132,56 @@ public class BookDB {
 		return book;
 	}
 	
+        /**
+	 * Retrieve a model for a single book
+	 * @param isbn String containing isbn with dashes.
+	 * @return model of a book
+	 */
+	public Book selectBookById(int id) {
+		Statement stmt = null;
+		ResultSet rs = null;
+		Book book = new Book();
+		Connection conn = null;
+		try {
+			conn = connPool.getConnection();
+			
+			if(conn != null) {
+				stmt = conn.createStatement();
+				
+				String strQuery = "select isbn, title, description, cover_image "  
+						+ "from books where id='" + id + "'";
+				rs = stmt.executeQuery(strQuery);
+				if (rs.next()) {
+					book.setIsbn(rs.getString(1));
+					book.setTitle(rs.getString(2));
+					book.setDescription(rs.getString(3));
+					book.setCoverImageFile(rs.getString(4));
+				}
+			}
+		} catch (SQLException e) {
+			for(Throwable t: e) {
+				t.printStackTrace();
+			}
+		} catch (Exception et) {
+			et.printStackTrace();
+		} finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+				if (stmt != null) {
+					stmt.close();
+				}
+				if (conn != null) {
+					connPool.returnConnection(conn);
+				}
+			} catch (Exception e) {
+				System.err.println(e);
+			}
+		}
+		return book;
+	}
+        
 	/**
 	 * Retrieve a model for a single book
 	 * @param query String containing isbn with dashes.
