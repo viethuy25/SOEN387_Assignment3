@@ -3,17 +3,24 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/vieth/Desktop/SOEN%20387/Assignment/A2/SOEN387_Assignment2/web/Search.jsp</file>
             <file>file:/C:/Users/vieth/Desktop/SOEN%20387/Assignment/A2/SOEN387_Assignment2/src/java/com/bookstore/db/BookDB.java</file>
-            <file>file:/C:/Users/vieth/Desktop/SOEN%20387/Assignment/A2/SOEN387_Assignment2/web/header.jsp</file>
-            <file>file:/C:/Users/vieth/Desktop/SOEN%20387/Assignment/A2/SOEN387_Assignment2/src/java/com/bookstore/BookLookup.java</file>
-            <file>file:/C:/Users/vieth/Desktop/SOEN%20387/Assignment/A2/SOEN387_Assignment2/src/java/com/bookstore/AddBook.java</file>
-            <file>file:/C:/Users/vieth/Desktop/SOEN%20387/Assignment/A2/SOEN387_Assignment2/web/AddBook.jsp</file>
+            <file>file:/C:/Users/vieth/Desktop/SOEN%20387/Assignment/A2/SOEN387_Assignment2/web/WEB-INF/web.xml</file>
+            <file>file:/C:/Users/vieth/Desktop/SOEN%20387/Assignment/A2/SOEN387_Assignment2/src/java/com/bookstore/models/User.java</file>
             <file>file:/C:/Users/vieth/Desktop/SOEN%20387/Assignment/A2/SOEN387_Assignment2/web/BookListing.jsp</file>
             <file>file:/C:/Users/vieth/Desktop/SOEN%20387/Assignment/A2/SOEN387_Assignment2/web/DelBook.jsp</file>
-            <file>file:/C:/Users/vieth/Desktop/SOEN%20387/Assignment/A2/SOEN387_Assignment2/src/java/com/bookstore/DelBook.java</file>
             <file>file:/C:/Users/vieth/Desktop/SOEN%20387/Assignment/A2/SOEN387_Assignment2/src/java/com/bookstore/models/Book.java</file>
+            <file>file:/C:/Users/vieth/Desktop/SOEN%20387/Assignment/A2/SOEN387_Assignment2/web/AddBookConfirmation.jsp</file>
             <file>file:/C:/Users/vieth/Desktop/SOEN%20387/Assignment/A2/SOEN387_Assignment2/src/java/com/bookstore/Search.java</file>
+            <file>file:/C:/Users/vieth/Desktop/SOEN%20387/Assignment/A2/SOEN387_Assignment2/web/Search.jsp</file>
+            <file>file:/C:/Users/vieth/Desktop/SOEN%20387/Assignment/A2/SOEN387_Assignment2/web/SignIn.jsp</file>
+            <file>file:/C:/Users/vieth/Desktop/SOEN%20387/Assignment/A2/SOEN387_Assignment2/web/header.jsp</file>
+            <file>file:/C:/Users/vieth/Desktop/SOEN%20387/Assignment/A2/SOEN387_Assignment2/src/java/com/bookstore/BookLookup.java</file>
+            <file>file:/C:/Users/vieth/Desktop/SOEN%20387/Assignment/A2/SOEN387_Assignment2/web/404_page.jsp</file>
+            <file>file:/C:/Users/vieth/Desktop/SOEN%20387/Assignment/A2/SOEN387_Assignment2/src/java/com/bookstore/AddBook.java</file>
+            <file>file:/C:/Users/vieth/Desktop/SOEN%20387/Assignment/A2/SOEN387_Assignment2/web/AddBook.jsp</file>
+            <file>file:/C:/Users/vieth/Desktop/SOEN%20387/Assignment/A2/SOEN387_Assignment2/web/loginError.jsp</file>
+            <file>file:/C:/Users/vieth/Desktop/SOEN%20387/Assignment/A2/SOEN387_Assignment2/src/java/com/bookstore/DelBook.java</file>
+            <file>file:/C:/Users/vieth/Desktop/SOEN%20387/Assignment/A2/SOEN387_Assignment2/src/java/com/bookstore/UserLogin.java</file>
             <file>file:/C:/Users/vieth/Desktop/SOEN%20387/Assignment/A2/SOEN387_Assignment2/web/index.jsp</file>
         </group>
     </open-files>

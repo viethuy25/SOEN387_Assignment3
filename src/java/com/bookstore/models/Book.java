@@ -3,8 +3,6 @@ package com.bookstore.models;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-import com.bookstore.db.AuthorDB;
-
 public class Book implements Serializable {
 	private String isbn;
 	private String title;

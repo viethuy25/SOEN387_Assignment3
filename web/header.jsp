@@ -12,7 +12,7 @@
         session.setAttribute("checkErr", "Please Login");
         
         // REMOVE THIS LATER
-        //response.sendRedirect("./SignUp.jsp");
+        response.sendRedirect("./SignIn.jsp");
     }
  %>  
  
@@ -29,19 +29,10 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
             <a class="navbar-brand" href="./">SOEN 387 Assignment 2</a>
         </div>
           
         <div id="navbar" class="navbar-collapse collapse">
-            <form class="navbar-form navbar-left" action="./Search" method="get">
-                <input type="text" class="form-control" name="search-query" id="search-query" size="40" placeholder="ISBN, Title, Author, Keyword...">
-            </form>
             
             <ul class="nav navbar-nav navbar-right">
                 <% 
@@ -58,15 +49,12 @@
                     } else {
                     // Not logged in, show login prompt
                 %>
-                    <li><a href="./SignUp.jsp">Sign in/Register</a></li> 
+                    <li><a href="./SignIn.jsp">Sign in/Register</a></li> 
                     <% } %>
                 
                 <li><a href="./AddBook.jsp">Add/Update Book</a></li>
                 <li><a href="./DelBook.jsp">Delete Book</a></li>
                 <li><a href="./Search?search-query=">View All Books</a></li>
-                <c:forEach var="row" items="${result.rows}">
-                <li><a href="./Search?search-query=${row.genre_name}">${row.genre_name}</a></li>
-                </c:forEach>
                 
             </ul>
         </div>

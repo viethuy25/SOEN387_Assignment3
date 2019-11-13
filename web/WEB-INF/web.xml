@@ -14,14 +14,6 @@
         <welcome-file>default.jsp</welcome-file>
     </welcome-file-list>
     <servlet>
-        <servlet-name>FirstTest</servlet-name>
-        <servlet-class>com.bookstore.FirstTest</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>DbTest</servlet-name>
-        <servlet-class>com.bookstore.db.DbTest</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>SignUp</servlet-name>
         <servlet-class>com.bookstore.db.UserSignUp</servlet-class>
     </servlet>
@@ -45,18 +37,6 @@
         <servlet-name>BookLookup</servlet-name>
         <servlet-class>com.bookstore.BookLookup</servlet-class>
     </servlet>
-    <servlet-mapping>
-        <servlet-name>FirstTest</servlet-name>
-        <url-pattern>/FirstTest</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>DbTest</servlet-name>
-        <url-pattern>/DbTest</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>SignUp</servlet-name>
-        <url-pattern>/SignUp</url-pattern>
-    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>UserLogin</servlet-name>
         <url-pattern>/UserLogin</url-pattern>

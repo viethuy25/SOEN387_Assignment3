@@ -17,9 +17,7 @@ import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
-import com.bookstore.db.AuthorDB;
 import com.bookstore.db.BookDB;
-import com.bookstore.models.Author;
 import com.bookstore.models.Book;
 import java.sql.SQLException;
 import java.util.logging.Level;
