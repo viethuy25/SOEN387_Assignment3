@@ -37,8 +37,14 @@ public class Search extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String query = request.getParameter("search-query");
 		System.out.println("In Search  Servlet");
-		ArrayList<Book> books = new BookDB().searchForBooks(query);
-		request.setAttribute("books", books);
+                ArrayList<Book> books = null;
+                
+                if (query.equals("*"))
+                    books = new BookDB().selectAllBooks();
+                else
+                    books = new BookDB().searchForBooks(query);
+		
+                request.setAttribute("books", books);
 		request.getRequestDispatcher("Search.jsp").forward(request, response);
 	}
 

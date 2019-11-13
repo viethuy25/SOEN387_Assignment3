@@ -48,6 +48,7 @@ public class DelBook extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String isbn = request.getParameter("isbn");
+                System.out.println(isbn);
 		int result = new BookDB().deleteBook(isbn);
                 
 		if (result == 1) {

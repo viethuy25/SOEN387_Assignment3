@@ -63,7 +63,7 @@
                 
                 <li><a href="./AddBook.jsp">Add/Update Book</a></li>
                 <li><a href="./DelBook.jsp">Delete Book</a></li>
-                <li><a href="./Search?search-query=*">View All Books</a></li>
+                <li><a href="./Search?search-query=">View All Books</a></li>
                 <c:forEach var="row" items="${result.rows}">
                 <li><a href="./Search?search-query=${row.genre_name}">${row.genre_name}</a></li>
                 </c:forEach>

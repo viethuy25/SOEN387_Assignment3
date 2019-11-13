@@ -3,7 +3,7 @@
 <%@ include file="header.jsp" %>
 <h1>Add a new book!</h1>
 
-<form action="./AddBook" method="post" enctype="multipart/form-data" >
+<form action="./AddBook" method="post">
     <p>
         <label for="isbn">ISBN:</label>
         <input type="text" name="isbn" id="isbn" required />
@@ -15,8 +15,8 @@
     </p>
 
     <p>
-        <label for="author1">Author:</label>
-        <input type="text" name="author1" id="author" required />
+        <label for="author">Author:</label>
+        <input type="text" name="author" id="author" required />
     </p>
 
     <p>
@@ -24,11 +24,11 @@
         <input type="text" name="description" id="description" required />
     </p>
 
-    <!-- <p>
+    <p>
         <label for="coverImage">Submit a Cover Image</label>
-        <input type="file" name="coverImage" id="coverImage" />
+        <input type="text" name="coverImage" id="coverImage" required/>
     </p>
-    -->
+    
     <br>
     <br>
     <input type="submit" />

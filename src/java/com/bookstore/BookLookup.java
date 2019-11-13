@@ -43,7 +43,7 @@ public class BookLookup extends HttpServlet {
 
 		RequestDispatcher dispatcher =
                 getServletContext().getRequestDispatcher("/BookListing.jsp");
-        dispatcher.forward(request, response);
+                dispatcher.forward(request, response);
 	}
 
 }

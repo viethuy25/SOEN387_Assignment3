@@ -7,20 +7,16 @@
 
 <div class="panel panel-default">
     <div class="panel-heading">
-    <h3 class="panel-title">${book.title}</h3>
+    <h3 class="panel-title">Tittle: ${book.title}</h3>
     </div>
   
     <div class="panel-body">
-        <img src="./book_images/${book.coverImageFile}" alt="${book.title} cover" width="200">
-        <form action="./cartUpdate" method="post">
-            <h4>ISBN: ${book.isbn}</h4>
-            <h4>Author: ${book.author}</h4>
-            <h4>Description:</h4>
-            <p>${book.description}</p>
+        <h4>Cover image: <img src="./book_images/${book.coverImageFile}" alt="${book.coverImageFile}" width="200"></h4>
+        <h4>ISBN: ${book.isbn}</h4>
+        <h4>Author: ${book.author}</h4>
+        <h4>Description:</h4>
+        <p>${book.description}</p>
             
-            <input type="hidden" name="isbn" value="${book.isbn}" />
-            <input type="hidden" name="title" value="${book.title}" />
-        </form>
       </div>
 </div>
 

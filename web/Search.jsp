@@ -18,6 +18,7 @@
                         <input type="hidden" name="isbn" id="isbn" value="${book.isbn}" />
                         <input type="hidden" name="title" id="title" value="${book.title}" />
                         <input type="hidden" name="description" id="description" value="${book.description}" />
+                        <input type="hidden" name="author" id="author" value="${book.author}" />
                         <input type="hidden" name="coverImageFile" id="coverImageFile" value="${book.coverImageFile}" />
                         <input type="submit" value="View" />
                     </form>
