@@ -17,7 +17,7 @@ import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
-import com.bookstore.db.Book_Table_Data_Gateway;
+import com.bookstore.DAO.Book_Table_Data_Gateway;
 import com.bookstore.models.Book;
 
 /**

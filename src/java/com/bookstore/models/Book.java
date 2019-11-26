@@ -26,41 +26,41 @@ public class Book implements Serializable {
 		this.coverImageFile = "";
 	}
 
-	public String getIsbn() {
+	public synchronized String getIsbn() {
 		return isbn;
 	}
 
-	public void setIsbn(String isbn) {
+	public synchronized void setIsbn(String isbn) {
 		this.isbn = isbn;
 	}
 
-	public String getTitle() {
+	public synchronized String getTitle() {
 		return title;
 	}
 
-	public void setTitle(String title) {
+	public synchronized void setTitle(String title) {
 		this.title = title;
 	}
 
-	public String getDescription() {
+	public synchronized String getDescription() {
 		return description;
 	}
 
-	public void setDescription(String description) {
+	public synchronized void setDescription(String description) {
 		this.description = description;
 	}
-	public String getCoverImageFile() {
+	public synchronized String getCoverImageFile() {
 		return coverImageFile;
 	}
 
-	public void setCoverImageFile(String coverImageFile) {
+	public synchronized void setCoverImageFile(String coverImageFile) {
 		this.coverImageFile = coverImageFile;
 	}
 
-        public void setAuthor(String author){
+        public synchronized void setAuthor(String author){
                 this.author = author;
         }
-        public String getAuthor() {               
+        public synchronized String getAuthor() {               
 		return author;
 	}
 }

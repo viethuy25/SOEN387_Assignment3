@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 
+import com.bookstore.DAO.Book_Table_Data_Gateway;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -11,7 +12,6 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-import com.bookstore.db.*;
 import com.bookstore.models.Book;
 import java.sql.SQLException;
 import java.util.ArrayList;

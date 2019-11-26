@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.bookstore.db.Book_Table_Data_Gateway;
+import com.bookstore.DAO.Book_Table_Data_Gateway;
 import com.bookstore.models.Book;
 
 /**

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="header.jsp" %>
-<%@ page import="com.bookstore.db.BookDB, java.text.*" %>
+<%@ page import="com.bookstore.DAO.Book_Table_Data_Gateway, java.text.*" %>
 <jsp:useBean id="book" scope="request" class="com.bookstore.models.Book"></jsp:useBean>
 <jsp:setProperty name="book" property="*"></jsp:setProperty>
 

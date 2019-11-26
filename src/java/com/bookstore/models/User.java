@@ -17,19 +17,19 @@ public class User implements Serializable {
 		this.passwd = "";
 	}
 
-	public String getUsername() {
+	public synchronized String getUsername() {
 		return username;
 	}
 
-	public void setUsername(String username) {
+	public synchronized void setUsername(String username) {
 		this.username = username;
 	}
 
-	public String getPasswd() {
+	public synchronized String getPasswd() {
 		return passwd;
 	}
 
-	public void setPasswd(String passwd) {
+	public synchronized void setPasswd(String passwd) {
 		this.passwd = passwd;
 	}
 	

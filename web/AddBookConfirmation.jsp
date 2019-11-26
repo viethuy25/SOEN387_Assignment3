@@ -7,7 +7,7 @@
 <%@ page import="org.apache.commons.io.output.*" %>
 
 <%@ include file="header.jsp" %>
-<%@ page import="com.bookstore.db.BookDB" %>
+<%@ page import="com.bookstore.DAO.Book_Table_Data_Gateway" %>
 <jsp:useBean id="book" scope="request" class="com.bookstore.models.Book"></jsp:useBean>
 
 <!-- Have to set each property manually since using multipart form submission -->

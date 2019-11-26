@@ -10,7 +10,7 @@ and open the template in the editor.
     pageEncoding="UTF-8"%>
 <%@ include file="header.jsp" %>
 
-<%@ page import="com.bookstore.db.BookDB, com.bookstore.models.Book, java.util.*, java.text.NumberFormat" %>
+<%@ page import="com.bookstore.DAO.Book_Table_Data_Gateway, com.bookstore.models.Book, java.util.*, java.text.NumberFormat" %>
 <head>
 	<title>SOEN 387- A2</title>
 </head>
@@ -20,10 +20,10 @@ and open the template in the editor.
 
 <%
     NumberFormat nf = NumberFormat.getCurrencyInstance();
-    BookDB bk = new BookDB();
+    Book_Table_Data_Gateway bk = new Book_Table_Data_Gateway();
     ArrayList<Book> books = bk.selectAllBooks();
 	
-    Object obj = new JSONParser().parse(new FileReader("C:\\Users\\vieth\\Desktop\\SOEN 387\\Assignment\\A2\\SOEN387_Assignment2\\user.json"));
+    Object obj = new JSONParser().parse(new FileReader("C:\\Users\\vieth\\Desktop\\SOEN 387\\Assignment\\A3\\SOEN387_Assignment3\\user.json"));
     out.println (obj);
         
 %>
