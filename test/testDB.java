@@ -36,7 +36,7 @@ public class testDB {
                     
             int result = 0;
             try {
-                result = new BookDB().createNewBook(book);
+                result = new Book_Table_Data_Gateway().createNewBook(book);
             }
             catch (SQLException e){
                 System.out.println("error");
@@ -48,28 +48,28 @@ public class testDB {
     public void TestDelBook()
     {                    
             int result = 0;
-            result = new BookDB().deleteBook("789546");
+            result = new Book_Table_Data_Gateway().deleteBook("789546");
             assertEquals(result,1);
     }
     
     @Test
     public void TestSearchBook()
     {                    
-            book = new BookDB().selectBook("765432");
+            book = new Book_Table_Data_Gateway().selectBook("765432");
             assertNotEquals(book,null);
     }
     
     @Test
     public void TestSearchBookById()
     {                    
-            book = new BookDB().selectBookById(2);
+            book = new Book_Table_Data_Gateway().selectBookById(2);
             assertNotEquals(book,null);
     }
     
     @Test
     public void TestSearchAllBook()
     {                    
-            books = new BookDB().selectAllBooks();
+            books = new Book_Table_Data_Gateway().selectAllBooks();
             assertNotEquals(books,null);
     }
     
@@ -80,7 +80,7 @@ public class testDB {
                     
             int result = 0;
             try {
-                result = new BookDB().createNewBook(book);
+                result = new Book_Table_Data_Gateway().createNewBook(book);
             }
             catch (SQLException e){
                 System.out.println("error");
@@ -92,7 +92,7 @@ public class testDB {
     public void TestNonRealDelBook()
     {                    
             int result = 0;
-            result = new BookDB().deleteBook("123");
+            result = new Book_Table_Data_Gateway().deleteBook("123");
             assertEquals(result,0);
     }
 }

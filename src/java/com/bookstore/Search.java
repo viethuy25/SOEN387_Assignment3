@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.bookstore.db.BookDB;
+import com.bookstore.db.Book_Table_Data_Gateway;
 import com.bookstore.models.Book;
 
 /**
@@ -40,9 +40,9 @@ public class Search extends HttpServlet {
                 ArrayList<Book> books = null;
                 
                 if (query.equals("*"))
-                    books = new BookDB().selectAllBooks();
+                    books = new Book_Table_Data_Gateway().selectAllBooks();
                 else
-                    books = new BookDB().searchForBooks(query);
+                    books = new Book_Table_Data_Gateway().searchForBooks(query);
 		
                 request.setAttribute("books", books);
 		request.getRequestDispatcher("Search.jsp").forward(request, response);

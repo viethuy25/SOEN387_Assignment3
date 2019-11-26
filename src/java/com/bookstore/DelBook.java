@@ -17,7 +17,7 @@ import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
-import com.bookstore.db.BookDB;
+import com.bookstore.db.Book_Table_Data_Gateway;
 import com.bookstore.models.Book;
 
 /**
@@ -47,7 +47,7 @@ public class DelBook extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String isbn = request.getParameter("isbn");
                 System.out.println(isbn);
-		int result = new BookDB().deleteBook(isbn);
+		int result = new Book_Table_Data_Gateway().deleteBook(isbn);
                 
 		if (result == 1) {
 			response.sendRedirect(request.getContextPath() + "/DelBookConfirmation.jsp?success=true");

@@ -7,8 +7,8 @@
 <!-- the Compile on Save feature is turned off for the project. -->
 <!-- You can turn off the Compile on Save (or Deploy on Save) setting -->
 <!-- in the project's Project Properties dialog box.-->
-<project name="SOEN387_Assignment2" default="default" basedir=".">
-    <description>Builds, tests, and runs the project SOEN387_Assignment2.</description>
+<project name="SOEN387_Assignment3" default="default" basedir=".">
+    <description>Builds, tests, and runs the project SOEN387_Assignment3.</description>
     <import file="nbproject/build-impl.xml"/>
     <!--
 

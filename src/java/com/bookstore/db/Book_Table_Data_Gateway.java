@@ -9,14 +9,14 @@ import java.util.ArrayList;
 import com.bookstore.models.Book;
 import java.sql.PreparedStatement;
 
-public class BookDB {
+public class Book_Table_Data_Gateway {
 	final private static String db_url = "jdbc:mysql://localhost:3306/bookstore";
 	final private static String db_username = "root";
 	final private static String db_passwd = "Barcelona2108";
 	
 	DBConnectionPool connPool = null;
 	
-	public BookDB() {
+	public Book_Table_Data_Gateway() {
 		this.connPool = setDBConnection();
 	}
 	

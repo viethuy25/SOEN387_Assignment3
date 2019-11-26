@@ -17,7 +17,7 @@ import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
-import com.bookstore.db.BookDB;
+import com.bookstore.db.Book_Table_Data_Gateway;
 import com.bookstore.models.Book;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -60,7 +60,7 @@ public class AddBook extends HttpServlet {
                     
             int result = 0;
             try {
-                result = new BookDB().createNewBook(book);
+                result = new Book_Table_Data_Gateway().createNewBook(book);
             } catch (SQLException ex) {
                 Logger.getLogger(AddBook.class.getName()).log(Level.SEVERE, null, ex);
             }

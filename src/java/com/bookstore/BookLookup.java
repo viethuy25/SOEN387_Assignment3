@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.bookstore.db.BookDB;
+import com.bookstore.db.Book_Table_Data_Gateway;
 import com.bookstore.models.Book;
 
 /**
@@ -38,7 +38,7 @@ public class BookLookup extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String isbn = (String) request.getParameter("isbn");
 		System.out.println("Retreived ISBN: " + isbn);
-		Book book = new BookDB().selectBook(isbn);
+		Book book = new Book_Table_Data_Gateway().selectBook(isbn);
 		request.setAttribute("book", book);
 
 		RequestDispatcher dispatcher =
