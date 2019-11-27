@@ -36,10 +36,10 @@ public class Search extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String query = request.getParameter("search-query");
-		System.out.println("In Search  Servlet");
+		System.out.println("In Search  Servlet: " + query);
                 ArrayList<Book> books = null;
                 
-                if (query.equals("*"))
+                if (query.equals(""))
                     books = new Book_Table_Data_Gateway().selectAllBooks();
                 else
                     books = new Book_Table_Data_Gateway().searchForBooks(query);

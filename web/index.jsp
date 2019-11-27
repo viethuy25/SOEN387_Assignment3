@@ -27,4 +27,9 @@ and open the template in the editor.
     out.println (obj);
         
 %>
+
+<form class="navbar-form navbar-center" action="./Search?search-query=" method="get">
+    <input type="text" class="form-control" name="search-query" id="search-query" size="40" placeholder="ID">
+</form>
+
 </body>

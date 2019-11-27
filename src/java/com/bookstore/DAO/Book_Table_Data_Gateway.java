@@ -140,7 +140,7 @@ public class Book_Table_Data_Gateway {
 	public Book selectBookById(int id) {
 		Statement stmt = null;
 		ResultSet rs = null;
-		Book book = new Book();
+		Book book = null;
 		Connection conn = null;
 		try {
 			conn = connPool.getConnection();
@@ -148,14 +148,16 @@ public class Book_Table_Data_Gateway {
 			if(conn != null) {
 				stmt = conn.createStatement();
 				
-				String strQuery = "select isbn, title, description, cover_image "  
-						+ "from books where id='" + id + "'";
+				String strQuery = "select * from books where id='" + id + "'";
 				rs = stmt.executeQuery(strQuery);
 				if (rs.next()) {
-					book.setIsbn(rs.getString(1));
+                                        book = new Book();
+                                        
 					book.setTitle(rs.getString(2));
 					book.setDescription(rs.getString(3));
-					book.setCoverImageFile(rs.getString(4));
+                                        book.setIsbn(rs.getString(4));
+                                        book.setAuthor(rs.getString(5));
+					book.setCoverImageFile(rs.getString(6));
 				}
 			}
 		} catch (SQLException e) {
@@ -191,6 +193,45 @@ public class Book_Table_Data_Gateway {
 		Statement stmt = null;
 		ResultSet rs = null;
 		ArrayList<Book> books = new ArrayList<Book>();
+		
+                try{
+                    if (Integer.parseInt(queryIn) > 0){
+                        Book book = null;
+                        book = this.selectBookById(Integer.parseInt(queryIn));
+                        
+                        if (book != null)
+                            books.add(book);
+                        else
+                            System.out.println(queryIn);
+                    } 
+                }catch(NumberFormatException e) { 
+                    System.err.println(e); 
+                } catch(NullPointerException e) {
+                    System.err.println(e);
+                }
+                
+		return books;
+	}
+	
+	private boolean isUniqueInList(ArrayList<Book> books, String isbn) {
+		boolean isUnique = true;
+		for (Book book : books) {
+			if (book.getIsbn().equals(isbn)) {
+				isUnique = false;
+			}
+		}
+		return isUnique;
+	}
+	
+	/**
+	 * Returns an list of all users in the system. May be useful for running reports
+	 * of for user administration by staff
+	 * @return A list of all users in the system.
+	 */
+	public ArrayList<Book> selectAllBooks() {
+		Statement stmt = null;
+		ResultSet rs = null;
+		ArrayList<Book> books = new ArrayList<Book>();
 		Connection conn = null;
 		try {
 			conn = connPool.getConnection();
@@ -221,70 +262,7 @@ public class Book_Table_Data_Gateway {
 			et.printStackTrace();
                 }
 		return books;
-	}
-	
-	private boolean isUniqueInList(ArrayList<Book> books, String isbn) {
-		boolean isUnique = true;
-		for (Book book : books) {
-			if (book.getIsbn().equals(isbn)) {
-				isUnique = false;
-			}
-		}
-		return isUnique;
-	}
-	
-	/**
-	 * Returns an list of all users in the system. May be useful for running reports
-	 * of for user administration by staff
-	 * @return A list of all users in the system.
-	 */
-	public ArrayList<Book> selectAllBooks() {
-		Statement stmt = null;
-		ResultSet rs = null;
-		ArrayList<Book> books = new ArrayList<Book>();
-		Connection conn = null;
-		
-		try {
-			conn = connPool.getConnection();
-			
-			if(conn != null) {
-				stmt = conn.createStatement();
-				String strQuery = "select isbn, title, author, description, cover_image"  
-						+ "from books";
-				rs = stmt.executeQuery(strQuery);
-				while(rs.next()) {
-					Book b = new Book();
-					b.setIsbn(rs.getString(1));
-					b.setTitle(rs.getString(2));
-                                        b.setAuthor(rs.getString(3));
-					b.setDescription(rs.getString(4));
-					b.setCoverImageFile(rs.getString(5));
-					books.add(b);
-				}
-			}
-		} catch (SQLException e) {
-			for(Throwable t: e) {
-				t.printStackTrace();
-			}
-		} catch (Exception et) {
-			et.printStackTrace();
-		} finally {
-			try {
-				if (rs != null) {
-					rs.close();
-				}
-				if (stmt != null) {
-					stmt.close();
-				}
-				if (conn != null) {
-					connPool.returnConnection(conn);
-				}
-			} catch (Exception e) {
-				System.err.println(e);
-			}
-		}		
-		return books;
-	}
+        }
 	
 	/**
 	 * Deletes a book from the database. This probably shouldn't be used that often
