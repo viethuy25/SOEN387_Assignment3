@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.bookstore.DAO.UserDB;
 import com.bookstore.models.User;
-import com.bookstore.util.Hasher;
 import java.io.FileNotFoundException;
+import java.security.MessageDigest;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.json.simple.parser.ParseException;
@@ -64,7 +64,7 @@ public class UserLogin extends HttpServlet {
 		}
 		
 		// Made it this far, user is valid. Now compare passwords.
-		String hashed = Hasher.getHash(passwordIn);
+		String hashed = this.getHash(passwordIn);
                 System.out.println(hashed + " toi di code " + user.getPasswd());
 		if (hashed.equals(user.getPasswd())) {
 			request.getSession().setAttribute("user", usernameIn);
@@ -79,4 +79,34 @@ public class UserLogin extends HttpServlet {
 		response.sendRedirect(request.getContextPath() + "/");
 	}
 
+        public static String getHash(String plainTextIn) {
+		// Get plaintext password, and set hash algorithm
+		String password = plainTextIn;
+		String algorithm = "MD5";
+
+		byte[] plainText = password.getBytes();  // Convert to bytes
+		MessageDigest md = null;
+
+		try { 
+		    md = MessageDigest.getInstance(algorithm);
+		} catch (Exception e) {
+		    e.printStackTrace();
+		}
+
+		md.reset(); 
+		md.update(plainText);                   // Add passwd bytes to digester
+		byte[] encodedPassword = md.digest();   // Hash the passwd
+		
+		// Iterate over the result and build a string representation
+		StringBuilder sb = new StringBuilder();
+		for (int i = 0; i < encodedPassword.length; i++) {
+		    if ((encodedPassword[i] & 0xff) < 0x10) {
+		        sb.append("0");
+		    }
+		
+		    sb.append(Long.toString(encodedPassword[i] & 0xff, 16));
+		}
+		
+		return sb.toString();
+	}
 }

@@ -7,7 +7,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import com.bookstore.models.User;
-import com.bookstore.util.Hasher;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
