@@ -25,7 +25,6 @@ import com.bookstore.models.Book;
  */
 public class DelBook extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
     /**
      * @see HttpServlet#HttpServlet()
      */

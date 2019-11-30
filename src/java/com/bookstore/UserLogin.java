@@ -20,7 +20,7 @@ import org.json.simple.parser.ParseException;
  */
 public class UserLogin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+        private static User user = null;
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -50,7 +50,9 @@ public class UserLogin extends HttpServlet {
 			return;
 		}
                 
-		User user = new User ();
+		if (user == null)
+                    user = new User();
+                
                 try {
                     user = new UserDB().selectUser(usernameIn);
                 } catch (ParseException ex) {

@@ -28,7 +28,7 @@ import java.util.logging.Logger;
  */
 public class AddBook extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+        private static Book book = null;
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -48,7 +48,6 @@ public class AddBook extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-            Book book = null;
 
             String title = request.getParameter("title");
             String description = request.getParameter("description");
@@ -56,7 +55,8 @@ public class AddBook extends HttpServlet {
             String author = request.getParameter("author");
             String image = request.getParameter("coverImage");
 
-            book = new Book(isbn,title,author,description,image);
+            if (book == null)
+                book = new Book(isbn,title,author,description,image);
                     
             int result = 0;
             try {

@@ -4,15 +4,18 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/vieth/Desktop/SOEN%20387/Assignment/A3/SOEN387_Assignment3/web/BookListing.jsp</file>
-            <file>file:/C:/Users/vieth/Desktop/SOEN%20387/Assignment/A3/SOEN387_Assignment3/src/java/com/bookstore/DAO/Book_Table_Data_Gateway.java</file>
-            <file>file:/C:/Users/vieth/Desktop/SOEN%20387/Assignment/A3/SOEN387_Assignment3/src/java/com/bookstore/Search.java</file>
+            <file>file:/C:/Users/vieth/Desktop/SOEN%20387/Assignment/A3/SOEN387_Assignment3/src/java/com/bookstore/DelBook.java</file>
             <file>file:/C:/Users/vieth/Desktop/SOEN%20387/Assignment/A3/SOEN387_Assignment3/src/java/com/bookstore/models/Book.java</file>
             <file>file:/C:/Users/vieth/Desktop/SOEN%20387/Assignment/A3/SOEN387_Assignment3/web/index.jsp</file>
             <file>file:/C:/Users/vieth/Desktop/SOEN%20387/Assignment/A3/SOEN387_Assignment3/src/java/com/bookstore/DAO/UserDB.java</file>
             <file>file:/C:/Users/vieth/Desktop/SOEN%20387/Assignment/A3/SOEN387_Assignment3/web/header.jsp</file>
-            <file>file:/C:/Users/vieth/Desktop/SOEN%20387/Assignment/A3/SOEN387_Assignment3/src/java/com/bookstore/UserLogin.java</file>
             <file>file:/C:/Users/vieth/Desktop/SOEN%20387/Assignment/A3/SOEN387_Assignment3/web/Search.jsp</file>
             <file>file:/C:/Users/vieth/Desktop/SOEN%20387/Assignment/A3/SOEN387_Assignment3/src/java/com/bookstore/models/User.java</file>
+            <file>file:/C:/Users/vieth/Desktop/SOEN%20387/Assignment/A3/SOEN387_Assignment3/src/java/com/bookstore/DAO/Book_Table_Data_Gateway.java</file>
+            <file>file:/C:/Users/vieth/Desktop/SOEN%20387/Assignment/A3/SOEN387_Assignment3/src/java/com/bookstore/AddBook.java</file>
+            <file>file:/C:/Users/vieth/Desktop/SOEN%20387/Assignment/A3/SOEN387_Assignment3/src/java/com/bookstore/Search.java</file>
+            <file>file:/C:/Users/vieth/Desktop/SOEN%20387/Assignment/A3/SOEN387_Assignment3/src/java/com/bookstore/UserLogin.java</file>
+            <file>file:/C:/Users/vieth/Desktop/SOEN%20387/Assignment/A3/SOEN387_Assignment3/src/java/com/bookstore/BookLookup.java</file>
         </group>
     </open-files>
 </project-private>

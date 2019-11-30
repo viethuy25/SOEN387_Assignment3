@@ -17,7 +17,7 @@ import com.bookstore.models.Book;
  */
 public class BookLookup extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+        private static Book book = null;
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -38,7 +38,9 @@ public class BookLookup extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String isbn = (String) request.getParameter("isbn");
 		System.out.println("Retreived ISBN: " + isbn);
-		Book book = new Book_Table_Data_Gateway().selectBook(isbn);
+                
+                if (book == null)
+                    book = new Book_Table_Data_Gateway().selectBook(isbn);
 		request.setAttribute("book", book);
 
 		RequestDispatcher dispatcher =
